@@ -35,9 +35,8 @@ export const EventCard: React.FC<EventCardProps> = ({
           <Image
             src={image}
             alt={title}
-            layout="fill"
-            objectFit="contain"
-            objectPosition="center"
+            fill
+            style={{ objectFit: "contain", objectPosition: "center" }}
             className="bg-gray-100 transition-transform duration-300 hover:scale-105"
           />
         </div>
