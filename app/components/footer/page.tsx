@@ -48,7 +48,7 @@ const Icon = ({ icon, label }: { icon: string; label: string }) => (
   </svg>
 );
 
-export const Footer = () => {
+export const FooterPage = () => {
   return (
     <footer className="border-t border-gray-200 bg-white">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
@@ -119,4 +119,4 @@ export const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterPage;
