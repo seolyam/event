@@ -2,8 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { Facebook, Github, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siFacebook, siGithub, siInstagram } from "simple-icons/icons";
 
 const footerData = [
   {
@@ -34,6 +34,20 @@ const footerData = [
   },
 ];
 
+// Utility function to render simple-icons SVG
+const Icon = ({ icon, label }: { icon: string; label: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    className="h-5 w-5"
+    aria-label={label}
+    role="img"
+    fill="currentColor"
+  >
+    <path d={icon} />
+  </svg>
+);
+
 export const Footer = () => {
   return (
     <footer className="border-t border-gray-200 bg-white">
@@ -53,7 +67,7 @@ export const Footer = () => {
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" asChild>
                 <Link href="https://github.com/gdsc-usls" aria-label="GitHub">
-                  <Github className="h-5 w-5" />
+                  <Icon icon={siGithub.path} label="GitHub" />
                 </Link>
               </Button>
               <Button variant="ghost" size="icon" asChild>
@@ -61,7 +75,7 @@ export const Footer = () => {
                   href="https://www.facebook.com/dsc.usls"
                   aria-label="Facebook"
                 >
-                  <Facebook className="h-5 w-5" />
+                  <Icon icon={siFacebook.path} label="Facebook" />
                 </Link>
               </Button>
               <Button variant="ghost" size="icon" asChild>
@@ -69,7 +83,7 @@ export const Footer = () => {
                   href="https://www.instagram.com/gdg.usls/"
                   aria-label="Instagram"
                 >
-                  <Instagram className="h-5 w-5" />
+                  <Icon icon={siInstagram.path} label="Instagram" />
                 </Link>
               </Button>
             </div>
