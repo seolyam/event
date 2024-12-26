@@ -229,13 +229,14 @@ const EventsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
-      <header className="bg-white shadow-sm">
+      <header className="">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <h1 className="text-3xl font-bold text-gray-900">
-            <span className="text-blue-600">G</span>
+            {/* <span className="text-blue-600">G</span>
             <span className="text-red-500">D</span>
             <span className="text-yellow-500">G</span>
-            <span className="text-green-500">OC</span> Events
+            <span className="text-green-500">OC</span>  */}
+            Events
           </h1>
         </div>
       </header>
@@ -286,12 +287,6 @@ const EventsPage = () => {
           </motion.p>
         )}
       </main>
-
-      <footer className="bg-gray-100 mt-12">
-        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-          © 2024 GDGOC USLS. All rights reserved.
-        </div>
-      </footer>
     </div>
   );
 };
