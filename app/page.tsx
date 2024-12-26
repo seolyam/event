@@ -1,7 +1,7 @@
 import EventsPage from "./events/page";
 import HeroPage from "./components/hero/page";
 import Navbar from "./components/navbar/page";
-import Footer from "./components/footer/page";
+import { FooterPage } from "./components/footer/page";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Navbar />
       <HeroPage />
       <EventsPage />
-      <Footer />
+      <FooterPage />
     </div>
   );
 }
