@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Navbar from "../components/navbar/page";
 
 const EventsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -228,20 +229,16 @@ const EventsPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
-      <header className="">
-        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-gray-900">
-            {/* <span className="text-blue-600">G</span>
-            <span className="text-red-500">D</span>
-            <span className="text-yellow-500">G</span>
-            <span className="text-green-500">OC</span>  */}
-            Events
-          </h1>
-        </div>
-      </header>
+    <div className="min-h-screen mb-42">
+      <Navbar />
 
       <main className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <header className="mt-32 mb-10 ">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">Events</h1>
+            <h2 className="text-5xl md:text-6xl font-bold"></h2>
+          </div>
+        </header>
         <div className="mb-8 flex flex-col sm:flex-row gap-4">
           <Input
             type="text"
