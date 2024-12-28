@@ -9,8 +9,6 @@ import { motion } from "framer-motion";
 const HeroPage = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      <div className="absolute inset-0 bg-[url('/gdg-pattern.svg')] opacity-10"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-transparent to-yellow-50"></div>
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
