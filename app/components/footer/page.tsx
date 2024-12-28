@@ -17,7 +17,7 @@ const footerData = [
   {
     title: "Resources",
     items: [
-      { title: "GitHub", link: "https://github.com/gdsc-usls" },
+      { title: "GitHub", link: "https://github.com/gdgoc-usls" },
       {
         title: "Community",
         link: "https://gdg.community.dev/gdg-on-campus-university-of-st-la-salle-bacolod-philippines/",
@@ -66,7 +66,7 @@ const FooterPage = () => {
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" asChild>
-                <Link href="https://github.com/gdsc-usls" aria-label="GitHub">
+                <Link href="https://github.com/gdgoc-usls" aria-label="GitHub">
                   <Icon icon={siGithub.path} label="GitHub" />
                 </Link>
               </Button>

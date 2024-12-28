@@ -10,22 +10,22 @@ const HeroPage = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.p
+        <motion.h1
           className="text-xl text-[#32A951] mb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           University of St. Lasalle
-        </motion.p>
-        <motion.h1
+        </motion.h1>
+        <motion.h2
           className="text-4xl sm:text-5xl md:text-6xl mb-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Google Developer Groups <br /> on Campus
-        </motion.h1>
+        </motion.h2>
 
         <motion.p
           className="text-xl text-[#5F6368] mb-8"
