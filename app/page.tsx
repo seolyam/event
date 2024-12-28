@@ -11,8 +11,8 @@ export default function Home() {
       <Navbar />
       <HeroPage />
       <Offers />
-      <EventsPage />
       <ProjectPage />
+      <EventsPage />
       <FooterPage />
     </div>
   );
