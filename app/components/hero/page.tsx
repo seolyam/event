@@ -10,25 +10,31 @@ const HeroPage = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-blue-600">G</span>
-          <span className="text-red-500">D</span>
-          <span className="text-yellow-500">G</span>
-          <span className="text-blue-600">OC</span>{" "}
-          <span className="text-green-500">USLS</span>
-        </motion.h1>
         <motion.p
-          className="text-xl sm:text-2xl md:text-3xl text-gray-700 mb-8"
+          className="text-xl text-[#32A951] mb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Events and Projects
+          University of St. Lasalle
+        </motion.p>
+        <motion.h1
+          className="text-4xl sm:text-5xl md:text-6xl mb-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Google Developer Groups <br /> on Campus
+        </motion.h1>
+
+        <motion.p
+          className="text-xl text-[#5F6368] mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Discover the Impact of Our Events, Projects, and Initiatives <br />
+          in Shaping Innovation and Excellence
         </motion.p>
 
         <motion.div
@@ -51,7 +57,7 @@ const HeroPage = () => {
             asChild
             size="lg"
             variant="outline"
-            className="group border-green-500 text-green-600 hover:bg-green-50"
+            className="group border-red-500 text-red-600 hover:bg-green-50"
           >
             <Link href="/projects">
               Explore Projects
@@ -67,8 +73,8 @@ const HeroPage = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           {[
-            { label: "Members", value: "550+", color: "text-blue-600" },
-            { label: "Events", value: "20+", color: "text-red-500" },
+            { label: "Members", value: "550+", color: "text-red-500" },
+            { label: "Events", value: "20+", color: "text-blue-500" },
             { label: "Projects", value: "5+", color: "text-yellow-500" },
           ].map((stat, index) => (
             <div
