@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className="fixed left-0 right-0 z-40 m-auto mt-10 flex max-w-screen-2xl justify-between px-7 text-black md:px-14 lg:items-center">
       {/* Logo */}
-      <div className="text-3xl font-bold">
+      <div className="text-3xl font-bold md:text-4xl">
         <Link href="/">
           <span className="text-blue-600">G</span>
           <span className="text-red-500">D</span>
@@ -22,7 +22,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex space-x-14 text-lg">
+      <div className="hidden md:flex space-x-14 text-lg md:text-xl">
         <Link href="/events" className="hover:underline">
           Events
         </Link>
