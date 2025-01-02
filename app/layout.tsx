@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/navbar/page";
 import FooterPage from "./components/footer/page";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "GDGOC Events",
@@ -37,7 +38,11 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -48,6 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </Head>
       <body className="font-sans min-h-screen bg-white text-gray-900">
         <Navbar />
         {children}
