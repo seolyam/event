@@ -11,7 +11,7 @@ const HeroPage = () => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1
-          className="text-xl text-[#32A951] mb-2"
+          className="text-base sm:text-xl text-[#32A951] mb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -19,16 +19,16 @@ const HeroPage = () => {
           University of St. Lasalle
         </motion.h1>
         <motion.h2
-          className="text-4xl sm:text-5xl md:text-6xl mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Google Developer Groups <br /> on Campus
+          Google Developer Groups <br className="hidden sm:block" /> on Campus
         </motion.h2>
 
         <motion.p
-          className="text-xl text-[#5F6368] mb-8"
+          className="text-sm sm:text-lg md:text-xl text-[#5F6368] mb-6 sm:mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -38,36 +38,34 @@ const HeroPage = () => {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row justify-center gap-4 mb-12"
+          className="flex flex-col sm:flex-row justify-center gap-4 mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <Button
             asChild
-            size="lg"
-            className="group bg-blue-600 text-white hover:bg-blue-700"
+            className="group bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base"
           >
             <Link href="/events">
               View Events
-              <Calendar className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Calendar className="ml-2 h-4 sm:h-5 w-4 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
           <Button
             asChild
-            size="lg"
             variant="outline"
-            className="group border-red-500 text-red-600 hover:bg-green-50"
+            className="group border-red-500 text-red-600 hover:bg-green-50 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base"
           >
             <Link href="/projects">
               Explore Projects
-              <Code className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Code className="ml-2 h-4 sm:h-5 w-4 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-md sm:max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -79,18 +77,20 @@ const HeroPage = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition"
+              className="bg-white rounded-lg p-4 sm:p-6 shadow-lg hover:shadow-xl transition"
             >
-              <div className={`text-3xl font-bold ${stat.color}`}>
+              <div className={`text-2xl sm:text-3xl font-bold ${stat.color}`}>
                 {stat.value}
               </div>
-              <div className="text-gray-600">{stat.label}</div>
+              <div className="text-gray-600 text-sm sm:text-base">
+                {stat.label}
+              </div>
             </div>
           ))}
         </motion.div>
 
         <motion.div
-          className="mt-12"
+          className="mt-8 sm:mt-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
@@ -100,7 +100,7 @@ const HeroPage = () => {
             className="text-green-600 hover:text-green-800 inline-flex items-center group"
           >
             Learn more about GDGOC
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5 group-hover:translate-x-1 transition-transform" />
           </a>
         </motion.div>
       </div>
