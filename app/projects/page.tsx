@@ -16,7 +16,7 @@ const projects: Project[] = [
     description:
       "Countdown tool used to build anticipation for our booth during Lasallian Week.",
     image: "/images/countdown.png",
-    link: "#",
+    link: "https://gdg-quandary.vercel.app",
     className: "col-span-3",
   },
   {
@@ -24,7 +24,7 @@ const projects: Project[] = [
     description:
       "Countdown tool used to build anticipation for our booth during Lasallian Week.",
     image: "/images/googleio.png",
-    link: "#",
+    link: "https://google-io.omsimos.com/",
     className: "col-span-2",
   },
   {
@@ -32,7 +32,7 @@ const projects: Project[] = [
     description:
       "Countdown tool used to build anticipation for our booth during Lasallian Week.",
     image: "/images/googleawards.png",
-    link: "#",
+    link: "https://gdsc-awards.omsimos.com/",
     className: "col-span-2",
   },
   {
@@ -40,7 +40,7 @@ const projects: Project[] = [
     description:
       "Countdown tool used to build anticipation for our booth during Lasallian Week.",
     image: "/images/devfest.png",
-    link: "#",
+    link: "https://devfest23.omsimos.com/",
     className: "col-span-3",
   },
   {
@@ -48,7 +48,7 @@ const projects: Project[] = [
     description:
       "Countdown tool used to build anticipation for our booth during Lasallian Week.",
     image: "/images/quandary.png",
-    link: "#",
+    link: "https://quandary-eta.vercel.app/",
     className: "col-span-3 row-span-2",
   },
   {
@@ -56,7 +56,7 @@ const projects: Project[] = [
     description:
       "Countdown tool used to build anticipation for our booth during Lasallian Week.",
     image: "/images/solcha.png",
-    link: "#",
+    link: "https://solcha-intro-23.vercel.app/",
     className: "col-span-2",
   },
   {
@@ -64,7 +64,7 @@ const projects: Project[] = [
     description:
       "Countdown tool used to build anticipation for our booth during Lasallian Week.",
     image: "/images/gdgocwebsite.png",
-    link: "#",
+    link: "https://gdgoc-event.vercel.app/",
     className: "col-span-2",
   },
 ];
