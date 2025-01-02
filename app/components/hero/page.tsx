@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const HeroPage = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-[40px]">
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1
           className="text-base sm:text-xl text-[#32A951] mb-2"
