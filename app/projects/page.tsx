@@ -1,6 +1,6 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "../components/navbar/page";
 
 interface Project {
   title: string;
@@ -72,7 +72,6 @@ const projects: Project[] = [
 export default function ProjectPage() {
   return (
     <div className="min-h-screen p-8">
-      <Navbar />
       <header className="mb-16 mt-44">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
@@ -128,6 +127,70 @@ export default function ProjectPage() {
           </Link>
         ))}
       </div>
+
+      <style jsx global>{`
+        @media (max-width: 1024px) {
+          .grid {
+            grid-template-columns: repeat(
+              3,
+              1fr
+            ); /* 3 items per row on medium screens */
+          }
+        }
+
+        @media (max-width: 768px) {
+          .grid {
+            grid-template-columns: 1fr; /* Stack the items vertically on small screens */
+            gap: 20px; /* Add space between the stacked items */
+          }
+
+          .text-5xl,
+          .text-6xl {
+            font-size: 2rem; /* Adjust header text size for smaller screens */
+          }
+
+          .p-6 {
+            padding: 1.5rem; /* Adjust padding for better readability */
+          }
+
+          .group:hover {
+            transform: none; /* Disable hover effect on mobile for smoother experience */
+          }
+
+          h3 {
+            font-size: 1.25rem; /* Reduce project title size on mobile */
+          }
+
+          p {
+            font-size: 0.875rem; /* Adjust project description font size on mobile */
+          }
+
+          .flex {
+            gap: 8px; /* Adjust gap between "Learn More" text and icon */
+          }
+        }
+
+        @media (max-width: 480px) {
+          .grid {
+            grid-template-columns: 1fr; /* Stack items for very small screens */
+            gap: 16px;
+          }
+
+          .text-5xl,
+          .text-6xl {
+            font-size: 1.5rem; /* Reduce text size further */
+          }
+
+          .group {
+            border-radius: 10px; /* Make corners of project cards more rounded on small screens */
+          }
+
+          .p-6 {
+            padding: 1rem; /* Reduce padding on very small screens */
+          }
+        }
+      `}</style>
+      <br></br>
     </div>
   );
 }

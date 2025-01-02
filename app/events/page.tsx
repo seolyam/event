@@ -11,7 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Navbar from "../components/navbar/page";
 
 const EventsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -230,8 +229,6 @@ const EventsPage = () => {
 
   return (
     <div className="min-h-screen mb-42">
-      <Navbar />
-
       <main className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <header className="mt-32 mb-10 ">
           <div className="max-w-4xl mx-auto text-center">
