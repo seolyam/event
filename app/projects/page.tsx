@@ -64,7 +64,7 @@ const projects: Project[] = [
     description:
       "Countdown tool used to build anticipation for our booth during Lasallian Week.",
     image: "/images/gdgocwebsite.png",
-    link: "https://gdgoc-event.vercel.app/",
+    link: "https://gdsc.omsimos.com/",
     className: "col-span-2",
   },
 ];
