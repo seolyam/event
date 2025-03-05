@@ -83,7 +83,7 @@ export default function ProjectPage() {
         </div>
       </header>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 max-w-7xl mx-auto [&>a]:min-h-[250px] md:[&>a]:min-h-[300px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 max-w-7xl mx-auto">
         {projects.map((project, index) => (
           <Link
             key={index}
@@ -92,7 +92,7 @@ export default function ProjectPage() {
             rel="noopener noreferrer"
             className={`group relative overflow-hidden rounded-lg transition-transform hover:-translate-y-1 ${project.className}`}
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full min-h-[250px] md:min-h-[300px]">
               <Image
                 src={project.image || "/placeholder.svg"}
                 alt={project.title}
@@ -134,6 +134,17 @@ export default function ProjectPage() {
       </div>
 
       <style jsx global>{`
+        /* On mobile (<640px), force each item to span 1 column */
+        @media (max-width: 639px) {
+          .col-span-2,
+          .col-span-3,
+          .row-span-2 {
+            grid-column: span 1 !important;
+            grid-row: span 1 !important;
+          }
+        }
+
+        /* On sm and above, maintain your grid layout as defined */
         @media (min-width: 640px) {
           .col-span-2 {
             grid-column: span 2;
@@ -176,6 +187,7 @@ export default function ProjectPage() {
           }
         }
       `}</style>
+
       <div className="h-16"></div>
     </div>
   );
