@@ -22,7 +22,7 @@ const projects: Project[] = [
   {
     title: "Google I/O Extended Bacolod 2023",
     description:
-      "Countdown tool used to build anticipation for our booth during Lasallian Week.",
+      "A series of community led tech meetups that bring the Google I/O experience to Bacolod.",
     image: "/images/googleio.png",
     link: "https://google-io.omsimos.com/",
     className: "col-span-2",
@@ -30,7 +30,7 @@ const projects: Project[] = [
   {
     title: "Google Awards",
     description:
-      "Countdown tool used to build anticipation for our booth during Lasallian Week.",
+      "A tribute to innovation and achievement, honoring outstanding individuals in the tech community.",
     image: "/images/googleawards.png",
     link: "https://gdsc-awards.omsimos.com/",
     className: "col-span-2",
@@ -38,7 +38,7 @@ const projects: Project[] = [
   {
     title: "DEVFEST 2023",
     description:
-      "Countdown tool used to build anticipation for our booth during Lasallian Week.",
+      "Annual tech conference featuring sessions on Google technologies and developer tools.",
     image: "/images/devfest.png",
     link: "https://devfest23.omsimos.com/",
     className: "col-span-3",
@@ -46,7 +46,7 @@ const projects: Project[] = [
   {
     title: "Quandary Website",
     description:
-      "Countdown tool used to build anticipation for our booth during Lasallian Week.",
+      "Interactive platform showcasing our tech community's projects and initiatives.",
     image: "/images/quandary.png",
     link: "https://quandary-eta.vercel.app/",
     className: "col-span-3 row-span-2",
@@ -54,7 +54,7 @@ const projects: Project[] = [
   {
     title: "SOLCHA Certificate Generator",
     description:
-      "Countdown tool used to build anticipation for our booth during Lasallian Week.",
+      "Tool for creating and distributing certificates for SOLCHA event participants.",
     image: "/images/solcha.png",
     link: "https://solcha-intro-23.vercel.app/",
     className: "col-span-2",
@@ -62,7 +62,7 @@ const projects: Project[] = [
   {
     title: "GDGOC Website",
     description:
-      "Countdown tool used to build anticipation for our booth during Lasallian Week.",
+      "Official website for Google Developer Groups on Campus at University of St. La Salle.",
     image: "/images/gdgocwebsite.png",
     link: "https://gdsc.omsimos.com/",
     className: "col-span-2",
@@ -71,40 +71,45 @@ const projects: Project[] = [
 
 export default function ProjectPage() {
   return (
-    <div className="min-h-screen p-8">
-      <header className="mb-16 mt-44">
+    <div className="min-h-screen p-4 sm:p-8">
+      <header className="mb-12 mt-24 sm:mb-16 sm:mt-44">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-4">
             Crafted Projects
           </h1>
-          <h2 className="text-5xl md:text-6xl font-bold">for the Community</h2>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold">
+            for the Community
+          </h2>
         </div>
       </header>
 
-      <div className="grid grid-cols-5 gap-6 max-w-7xl mx-auto [&>a]:min-h-[300px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 max-w-7xl mx-auto [&>a]:min-h-[250px] md:[&>a]:min-h-[300px]">
         {projects.map((project, index) => (
           <Link
             key={index}
             href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`group relative overflow-hidden rounded-lg transition-transform hover:-translate-y-1 ${project.className}`}
           >
             <div className="relative w-full h-full">
               <Image
-                src={project.image}
+                src={project.image || "/placeholder.svg"}
                 alt={project.title}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                priority={index < 3}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent transition-opacity">
-                <div className="p-6 h-full flex flex-col justify-end">
-                  <h3 className="text-2xl text-white font-semibold mb-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent">
+                <div className="p-4 sm:p-6 h-full flex flex-col justify-end">
+                  <h3 className="text-xl sm:text-2xl text-white font-semibold mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-200 text-md mb-4">
+                  <p className="text-gray-200 text-sm sm:text-md mb-4">
                     {project.description}
                   </p>
-                  <div className="flex items-center text-white">
+                  <div className="flex items-center text-white text-sm sm:text-base">
                     Learn more
                     <svg
                       className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
@@ -129,68 +134,49 @@ export default function ProjectPage() {
       </div>
 
       <style jsx global>{`
-        @media (max-width: 1024px) {
-          .grid {
-            grid-template-columns: repeat(
-              3,
-              1fr
-            ); /* 3 items per row on medium screens */
+        @media (min-width: 640px) {
+          .col-span-2 {
+            grid-column: span 2;
+          }
+          .col-span-3 {
+            grid-column: span 2;
+          }
+          .row-span-2 {
+            grid-row: span 1;
           }
         }
 
-        @media (max-width: 768px) {
-          .grid {
-            grid-template-columns: 1fr; /* Stack the items vertically on small screens */
-            gap: 20px; /* Add space between the stacked items */
+        @media (min-width: 768px) {
+          .col-span-2 {
+            grid-column: span 2;
           }
-
-          .text-5xl,
-          .text-6xl {
-            font-size: 2rem; /* Adjust header text size for smaller screens */
-          }
-
-          .p-6 {
-            padding: 1.5rem; /* Adjust padding for better readability */
-          }
-
-          .group:hover {
-            transform: none; /* Disable hover effect on mobile for smoother experience */
-          }
-
-          h3 {
-            font-size: 1.25rem; /* Reduce project title size on mobile */
-          }
-
-          p {
-            font-size: 0.875rem; /* Adjust project description font size on mobile */
-          }
-
-          .flex {
-            gap: 8px; /* Adjust gap between "Learn More" text and icon */
+          .col-span-3 {
+            grid-column: span 3;
           }
         }
 
-        @media (max-width: 480px) {
-          .grid {
-            grid-template-columns: 1fr; /* Stack items for very small screens */
-            gap: 16px;
+        @media (min-width: 1024px) {
+          .col-span-2 {
+            grid-column: span 2;
           }
-
-          .text-5xl,
-          .text-6xl {
-            font-size: 1.5rem; /* Reduce text size further */
+          .col-span-3 {
+            grid-column: span 3;
           }
-
-          .group {
-            border-radius: 10px; /* Make corners of project cards more rounded on small screens */
+          .row-span-2 {
+            grid-row: span 2;
           }
+        }
 
-          .p-6 {
-            padding: 1rem; /* Reduce padding on very small screens */
+        @media (min-width: 1280px) {
+          .col-span-2 {
+            grid-column: span 2;
+          }
+          .col-span-3 {
+            grid-column: span 3;
           }
         }
       `}</style>
-      <br></br>
+      <div className="h-16"></div>
     </div>
   );
 }
