@@ -17,12 +17,19 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const isScrolled = currentScrollY > 10;
+      setScrolled(isScrolled);
 
-      setScrolled(currentScrollY > 10);
-
-      if (currentScrollY < lastScrollY) {
+      // Always show the navbar at the top
+      if (currentScrollY <= 10) {
         setShowNavbar(true);
-      } else {
+      }
+      // Show navbar when scrolling up
+      else if (currentScrollY < lastScrollY) {
+        setShowNavbar(true);
+      }
+      // Hide navbar when scrolling down
+      else {
         setShowNavbar(false);
       }
 
@@ -32,6 +39,11 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  // Ensure navbar is visible on initial load
+  useEffect(() => {
+    setShowNavbar(true);
+  }, []);
 
   return (
     <div
@@ -56,15 +68,14 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="hidden md:flex items-center space-x-14 text-lg md:text-xl transition-opacity duration-300">
+        {/* Always show the navigation links */}
+        <div className="flex items-center space-x-14 text-lg md:text-xl transition-opacity duration-300">
           <Link
             href="/events"
             className={`relative pb-2 transition-colors hover:text-blue-600 ${
               pathname === "/events"
                 ? "text-blue-600 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-blue-600"
-                : scrolled
-                ? "text-gray-800"
-                : "text-white text-shadow-sm"
+                : "text-gray-800"
             }`}
           >
             Events
@@ -74,16 +85,14 @@ const Navbar = () => {
             className={`relative pb-2 transition-colors hover:text-blue-600 ${
               pathname === "/projects"
                 ? "text-blue-600 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-blue-600"
-                : scrolled
-                ? "text-gray-800"
-                : "text-white text-shadow-sm"
+                : "text-gray-800"
             }`}
           >
             Projects
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu (Optional – you may remove it if not needed) */}
         <div className="md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
