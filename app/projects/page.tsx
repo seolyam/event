@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 interface Project {
   title: string;
@@ -70,6 +71,15 @@ const projects: Project[] = [
 ];
 
 export default function ProjectPage() {
+  const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
+
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded((prev) => ({
+      ...prev,
+      [index]: true,
+    }));
+  };
+
   return (
     <div className="min-h-screen p-4 sm:p-8">
       <header className="mb-12 mt-24 sm:mb-16 sm:mt-44">
@@ -93,13 +103,25 @@ export default function ProjectPage() {
             className={`group relative overflow-hidden rounded-lg transition-transform hover:-translate-y-1 ${project.className}`}
           >
             <div className="relative w-full h-full min-h-[250px] md:min-h-[300px]">
+              <div
+                className={`absolute inset-0 bg-gray-200 animate-pulse ${
+                  imagesLoaded[index] ? "hidden" : "block"
+                }`}
+              ></div>
               <Image
                 src={project.image || "/placeholder.svg"}
                 alt={project.title}
                 fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                priority={index < 3}
+                quality={95}
+                priority={index < 4}
+                onLoad={() => handleImageLoad(index)}
+                className={`object-cover transition-opacity duration-300 ${
+                  imagesLoaded[index] ? "opacity-100" : "opacity-0"
+                }`}
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                style={{
+                  objectPosition: "center",
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent">
                 <div className="p-4 sm:p-6 h-full flex flex-col justify-end">
@@ -159,10 +181,10 @@ export default function ProjectPage() {
 
         @media (min-width: 768px) {
           .col-span-2 {
-            grid-column: span 2;
+            grid-column: span 1;
           }
           .col-span-3 {
-            grid-column: span 3;
+            grid-column: span 2;
           }
         }
 
