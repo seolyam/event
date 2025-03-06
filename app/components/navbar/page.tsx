@@ -10,48 +10,61 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
+      const currentScrollY = window.scrollY;
+
+      setScrolled(currentScrollY > 10);
+
+      if (currentScrollY < lastScrollY) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
       }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrolled]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <div
-      className={`fixed left-0 right-0 top-0 z-40 w-full transition-all duration-300 py-4 ${
+      className={`fixed left-0 right-0 top-0 z-40 w-full transition-transform duration-300 py-4 ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
+      } ${
         scrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between py-6 px-10 md:px-16">
-        {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="/images/logo.png"
             alt="Logo"
             width={40}
             height={40}
-            className="h-10 w-auto object-contain"
+            quality={100}
+            priority
+            className="w-auto h-10"
+            style={{ objectFit: "contain", maxWidth: "unset" }}
+            unoptimized
           />
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-14 text-lg md:text-xl">
+        <div className="hidden md:flex items-center space-x-14 text-lg md:text-xl transition-opacity duration-300">
           <Link
             href="/events"
             className={`relative pb-2 transition-colors hover:text-blue-600 ${
               pathname === "/events"
                 ? "text-blue-600 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-blue-600"
-                : "text-gray-800"
+                : scrolled
+                ? "text-gray-800"
+                : "text-white text-shadow-sm"
             }`}
           >
             Events
@@ -61,18 +74,23 @@ const Navbar = () => {
             className={`relative pb-2 transition-colors hover:text-blue-600 ${
               pathname === "/projects"
                 ? "text-blue-600 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-blue-600"
-                : "text-gray-800"
+                : scrolled
+                ? "text-gray-800"
+                : "text-white text-shadow-sm"
             }`}
           >
             Projects
           </Link>
         </div>
 
-        {/* Hamburger Menu for Mobile */}
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" className="p-2">
+              <Button
+                variant="ghost"
+                className={`p-2 ${scrolled ? "text-gray-800" : "text-white"}`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
