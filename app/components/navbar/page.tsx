@@ -53,7 +53,9 @@ const Navbar = () => {
         scrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between py-6 px-10 md:px-16">
+      
+      {/* Changed: md:px-16 to px-40, breakpoints for image height size */}
+      <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between py-4 px-10 md:px-40">
         <Link href="/" className="flex items-center">
           <Image
             src="/images/logo.png"
@@ -62,14 +64,14 @@ const Navbar = () => {
             height={40}
             quality={100}
             priority
-            className="w-auto h-10"
+            className="w-auto h-8 md:h-10"
             style={{ objectFit: "contain", maxWidth: "unset" }}
             unoptimized
           />
         </Link>
 
         {/* Always show the navigation links */}
-        <div className="flex items-center space-x-14 text-lg md:text-xl transition-opacity duration-300">
+        <div className="hidden md:flex items-center space-x-14 text-lg md:text-xl transition-opacity duration-300">
           <Link
             href="/events"
             className={`relative pb-2 transition-colors hover:text-blue-600 ${
@@ -92,13 +94,16 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile Menu (Optional – you may remove it if not needed) */}
-        <div className="md:hidden">
+        {/* Mobile Menu (Optional – you may remove it if not needed) 
+            Changed: block md:hidden
+        */}
+        <div className="block md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
-                className={`p-2 ${scrolled ? "text-gray-800" : "text-white"}`}
+                // Changed: checked if the menu is open instead of if the screen is scrolled
+                className={`p-2 ${!isMenuOpen ? "text-gray-800" : "text-white"}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
