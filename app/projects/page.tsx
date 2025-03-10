@@ -2,73 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-  className: string;
-}
-
-const projects: Project[] = [
-  {
-    title: "Quandary Countdown Website",
-    description:
-      "Countdown tool used to build anticipation for our booth during Lasallian Week.",
-    image: "/images/countdown.png",
-    link: "https://gdg-quandary.vercel.app",
-    className: "col-span-3",
-  },
-  {
-    title: "Google I/O Extended Bacolod 2023",
-    description:
-      "A series of community led tech meetups that bring the Google I/O experience to Bacolod.",
-    image: "/images/googleio.png",
-    link: "https://google-io.omsimos.com/",
-    className: "col-span-2",
-  },
-  {
-    title: "Google Awards",
-    description:
-      "A tribute to innovation and achievement, honoring outstanding individuals in the tech community.",
-    image: "/images/googleawards.png",
-    link: "https://gdsc-awards.omsimos.com/",
-    className: "col-span-2",
-  },
-  {
-    title: "DEVFEST 2023",
-    description:
-      "Annual tech conference featuring sessions on Google technologies and developer tools.",
-    image: "/images/devfest.png",
-    link: "https://devfest23.omsimos.com/",
-    className: "col-span-3",
-  },
-  {
-    title: "Quandary Website",
-    description:
-      "Interactive platform showcasing our tech community's projects and initiatives.",
-    image: "/images/quandary.png",
-    link: "https://quandary-eta.vercel.app/",
-    className: "col-span-3 row-span-2",
-  },
-  {
-    title: "SOLCHA Certificate Generator",
-    description:
-      "Tool for creating and distributing certificates for SOLCHA event participants.",
-    image: "/images/solcha.png",
-    link: "https://solcha-intro-23.vercel.app/",
-    className: "col-span-2",
-  },
-  {
-    title: "GDGOC Website",
-    description:
-      "Official website for Google Developer Groups on Campus at University of St. La Salle.",
-    image: "/images/gdgocwebsite.png",
-    link: "https://gdsc.omsimos.com/",
-    className: "col-span-2",
-  },
-];
+import { projects } from "./projects";
 
 export default function ProjectPage() {
   const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
