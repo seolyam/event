@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { projects } from "./projects";
+import { projects, featuredProjects } from "./projects";
+import { FeatureCard } from './FeatureCard';
 
 export default function ProjectPage() {
   const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
@@ -143,8 +144,17 @@ export default function ProjectPage() {
           }
         }
       `}</style>
-
       <div className="h-16"></div>
+
+      {/*NEW: Featured Projects Section*/}
+      <div className="flex flex-col gap-10 items-center">
+        <h2 className="">Featured Projects from Other Departments</h2>
+        <div className="flex gap-10 p:4 sm:p-8">
+          {featuredProjects.map((project, index) => {
+            return <FeatureCard key={index} {...project}></FeatureCard>
+          })}
+        </div>
+      </div>
     </div>
   );
 }

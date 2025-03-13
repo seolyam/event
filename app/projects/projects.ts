@@ -1,18 +1,43 @@
-interface Project {
+export interface Project {
     title: string;
     description: string;
     image: string;
     link: string;
     className: string;
-  }
-  
+}
+
+export interface FeaturedProject extends Omit<Project, 'description' | 'className'> {
+    department: string;
+}
+
+export const featuredProjects: FeaturedProject[] = [
+    {
+        title: "Raw and Bold: The Neubrutalism",
+        image: "/images/uiux.jpg",
+        link: "https://www.facebook.com/dsc.usls/posts/pfbid0hrjP3N1ntZLfVW73R7iuyKXbPQGiUXZRuQeVBL4WrGAPKC2wFCdVZqVffcH7hBS8l",
+        department: "UI/UX"
+    },
+    {
+        title: "AI & I",
+        image: "/images/ai.png",
+        link: "",
+        department: "AI",
+    },
+    {
+        title: "GlitchGunner",
+        image: "/images/gamedev.png",
+        link: "",
+        department: "Game Dev",
+    },
+];
+
 export const projects: Project[] = [
     {
       title: "Quandary Countdown Website",
       description:
         "Countdown tool used to build anticipation for our booth during Lasallian Week.",
       image: "/images/countdown.png",
-      link: "https://gdg-quandary.vercel.app",
+      link: "https://quandary-countdown.vercel.app",
       className: "col-span-3",
     },
     {
