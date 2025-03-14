@@ -8,26 +8,30 @@ export interface Project {
 
 export interface FeaturedProject extends Omit<Project, 'description' | 'className'> {
     department: string;
+    color: string;
 }
 
 export const featuredProjects: FeaturedProject[] = [
     {
-        title: "Raw and Bold: The Neubrutalism",
+        title: "The Neubrutalism",
         image: "/images/uiux.jpg",
         link: "https://www.facebook.com/dsc.usls/posts/pfbid0hrjP3N1ntZLfVW73R7iuyKXbPQGiUXZRuQeVBL4WrGAPKC2wFCdVZqVffcH7hBS8l",
-        department: "UI/UX"
+        department: "UI/UX",
+        color: "red-500"
     },
     {
         title: "AI & I",
-        image: "/images/ai.png",
+        image: "/images/ai.jpg",
         link: "",
         department: "AI",
+        color: "yellow-500"
     },
     {
         title: "GlitchGunner",
         image: "/images/gamedev.png",
         link: "",
         department: "Game Dev",
+        color: "blue-500"        
     },
 ];
 

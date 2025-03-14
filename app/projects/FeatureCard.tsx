@@ -2,14 +2,15 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { FeaturedProject } from "./projects";
 
 export const FeatureCard: React.FC<FeaturedProject> = ({
     title,
     image,
     link,
-    department
+    department,
+    color
 }) => {
     return (
         <motion.div
@@ -18,17 +19,23 @@ export const FeatureCard: React.FC<FeaturedProject> = ({
             transition={{ duration: 0.5 }}
         >
           <Link href={link} target="_blank" rel="noreferrer">
-            <Card className="flex flex-col items-center w-80 h-100">
-                {/* FIX: Image Rendering */}
-                <Image
-                  src={image}
-                  alt={title}
-                  fill  
-                  className="w-[20rem] h-[19rem] transition-transform duration-300 hover:scale-105"
-                />
-                <CardContent className="flex flex-col gap-2 text-center">
-                  <h3>{title}</h3>
-                  <p>{department} Department</p>
+            <Card className="flex flex-col items-center w-100 h-120 shadow-lg transition-transform duration-300 hover:shadow-xl hover:scale-105">
+                <CardHeader className="p-3 overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={title}
+                    width={2048}
+                    height={2048}  
+                    className="object-cover rounded-md"
+                  />
+                </CardHeader>
+                <CardContent className="flex flex-col text-center justify-center gap-1 lg:gap-0">
+                  <h3 className="text-xl lg:text-3xl leading-normal">{title}</h3>
+                  <h1 className={`rounded-full p-1 w-[175px] mx-auto text-sm text-${color}`}
+                      style={{ outline: `2px solid` }}
+                  >
+                        {department} Department
+                  </h1>
                 </CardContent>
               </Card>
           </Link>

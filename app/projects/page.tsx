@@ -147,9 +147,12 @@ export default function ProjectPage() {
       <div className="h-16"></div>
 
       {/*NEW: Featured Projects Section*/}
-      <div className="flex flex-col gap-10 items-center">
-        <h2 className="">Featured Projects from Other Departments</h2>
-        <div className="flex gap-10 p:4 sm:p-8">
+      <div className="flex flex-col gap-6 items-center">
+        <div className="flex flex-col text-center">
+          <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-4">Featured Projects</h2>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">from other Departments</h1>
+        </div>
+        <div className="max-w-7xl mx-auto flex flex-wrap lg:flex-nowrap  gap-4 lg:gap-20 p:4 sm:p-8 mb-4">
           {featuredProjects.map((project, index) => {
             return <FeatureCard key={index} {...project}></FeatureCard>
           })}

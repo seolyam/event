@@ -2,7 +2,7 @@ export const pastEvents = [
     {
       title:
         "TechCare: Project Dagtaan",
-      date: "15 Mar, 22 Mar, and 29 Mar 2025",
+      date: "22 Mar, 29 Mar, and 5 Apr 2025",
       type: "Outreach Program",
       location: "Kalipay Foundation",
       image: "/images/dagtaan.jpg",
