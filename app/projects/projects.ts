@@ -22,7 +22,7 @@ export const featuredProjects: FeaturedProject[] = [
     {
         title: "AI & I",
         image: "/images/ai.jpg",
-        link: "",
+        link: "https://www.facebook.com/media/set/?set=a.960729226270257&type=3",
         department: "AI",
         color: "yellow-500"
     },
@@ -45,11 +45,11 @@ export const projects: Project[] = [
       className: "col-span-3",
     },
     {
-      title: "Google I/O Extended Bacolod 2023",
+      title: "The Capitol",
       description:
-        "A series of community led tech meetups that bring the Google I/O experience to Bacolod.",
-      image: "/images/googleio.png",
-      link: "https://google-io.omsimos.com/",
+        "Website for The Capitol: Club Fair 2024. Developed by Joseph Dale Bañares, former Chief Technology Officer.",
+      image: "/images/district-3.png",
+      link: "https://gdsc-3d.omsimos.com/",
       className: "col-span-2",
     },
     {
