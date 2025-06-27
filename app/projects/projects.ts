@@ -6,32 +6,43 @@ export interface Project {
     className: string;
 }
 
-export interface FeaturedProject extends Omit<Project, 'description' | 'className'> {
+export interface FeaturedProject extends Omit<Project, 'className'> {
     department: string;
     color: string;
 }
 
 export const featuredProjects: FeaturedProject[] = [
     {
+        title: "Bantala: APAC Solution Challenge 2025",
+        image: "/images/bantala.png",
+        link: "https://www.youtube.com/watch?v=EcPemPmNJa8&t=1s",
+        department: "Team AmBot",
+        color: "[#FF4E08]",
+        description: 'Bantala is a disaster-preparedness web app focused exclusively on communities near Mt. Kanlaon, one of the most active volcanoes in the Philippines. It empowers communities through Evacuation Mapping, RAG-Assisted Chatbot, and Community-Driven Emergency Bulletin.'
+    },
+    {
         title: "The Neubrutalism",
         image: "/images/uiux.jpg",
         link: "https://www.facebook.com/dsc.usls/posts/pfbid0hrjP3N1ntZLfVW73R7iuyKXbPQGiUXZRuQeVBL4WrGAPKC2wFCdVZqVffcH7hBS8l",
         department: "UI/UX",
-        color: "red-500"
+        color: "red-500",
+        description: 'A bold design trend that embraces raw aesthetics, solid borders, and loud colors. Neubrutalism breaks away from overly polished UIs to create striking, honest, and memorable interfaces.'
     },
     {
         title: "AI & I",
         image: "/images/ai.jpg",
         link: "https://www.facebook.com/media/set/?set=a.960729226270257&type=3",
-        department: "AI",
-        color: "yellow-500"
+        department: "Artificial Intelligence",
+        color: "yellow-500",
+        description: 'A departmental project that aims to educate people about different Artificial Intelligence topics.'
     },
     {
         title: "GlitchGunner",
         image: "/images/gamedev.png",
         link: "",
-        department: "Game Dev",
-        color: "blue-500"        
+        department: "Game Development",
+        color: "blue-500",   
+        description: 'A 2D platformer-shooter educational game with a fully customizable quiz system designed to help people who struggle with focus while studying.'     
     },
 ];
 

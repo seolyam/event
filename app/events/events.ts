@@ -1,6 +1,15 @@
 export const pastEvents = [
     {
       title:
+        "AImagine: Build With AI",
+      date: "22 Mar, 29 Mar, and 5 Apr 2025",
+      type: "Workshop / Study Group",
+      location: "CSL 1, University of St. La Salle",
+      image: "/images/bwai.jpg",
+      link: "https://www.facebook.com/dsc.usls/posts/pfbid026MXJ2BKpLzj9CG1kDrntwen1wAjqXCgRCHz7UK5JpkimMQnRDzpX952DVjMqWtZXl",
+    },
+    {
+      title:
         "TechCare: Project Dagtaan",
       date: "22 Mar, 29 Mar, and 5 Apr 2025",
       type: "Outreach Program",

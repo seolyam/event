@@ -2,8 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { projects, featuredProjects } from "./projects";
-import { FeatureCard } from './FeatureCard';
+import { projects } from "./projects";
+import { FeatureCarousel } from "./FeatureCarousel";
 
 export default function ProjectPage() {
   const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
@@ -149,14 +149,10 @@ export default function ProjectPage() {
       {/*NEW: Featured Projects Section*/}
       <div className="flex flex-col gap-6 items-center">
         <div className="flex flex-col text-center">
-          <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-4">Featured Projects</h2>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">from other Departments</h1>
+          <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-4">Featured</h2>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">Departmental Projects</h1>
         </div>
-        <div className="max-w-7xl mx-auto flex flex-wrap lg:flex-nowrap  gap-4 lg:gap-20 p:4 sm:p-8 mb-4">
-          {featuredProjects.map((project, index) => {
-            return <FeatureCard key={index} {...project}></FeatureCard>
-          })}
-        </div>
+        <FeatureCarousel />
       </div>
     </div>
   );
