@@ -34,12 +34,12 @@ export const featuredProjects: FeaturedProject[] = [
         link: "https://www.facebook.com/media/set/?set=a.960729226270257&type=3",
         department: "Artificial Intelligence",
         color: "yellow-500",
-        description: 'A departmental project that aims to educate people about different Artificial Intelligence topics.'
+        description: 'This departmental project aims to educate people about various topics in Artificial Intelligence, from machine learning to ethical implications. It seeks to make AI more approachable and understandable for students and the general public through accessible materials and discussions.'
     },
     {
         title: "GlitchGunner",
         image: "/images/gamedev.png",
-        link: "",
+        link: "https://yuno517.itch.io/uhop-glitchgunner",
         department: "Game Development",
         color: "blue-500",   
         description: 'A 2D platformer-shooter educational game with a fully customizable quiz system designed to help people who struggle with focus while studying.'     

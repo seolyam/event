@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { featuredProjects } from './projects'
 import Image from 'next/image'
 import { BiSolidChevronLeftSquare, BiSolidChevronRightSquare } from "react-icons/bi";
@@ -7,11 +7,12 @@ import Link from 'next/link'
 const FeatureCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const length = featuredProjects.length
+    const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
     const nextSlide = () => setCurrentIndex(prev => (prev === length - 1 ? 0 : prev + 1));
     const prevSlide = () => setCurrentIndex(prev => (prev === 0 ? length - 1 : prev - 1));
     const mapColors = (color: string) => {
-        const colors: Record<string,string> = {
+        const colors: Record<string, string> = {
             'red-500': 'bg-red-500',
             'yellow-500': 'bg-yellow-500',
             'blue-500': 'bg-blue-500',
@@ -20,10 +21,26 @@ const FeatureCarousel = () => {
         return colors[color]
     }
 
+    const startInterval = () => {
+        intervalRef.current = setInterval(nextSlide, 5000)
+    }
+    const clearSlideInterval = () => {
+        if(intervalRef.current) clearInterval(intervalRef.current)
+    }
+
+    useEffect(() => {
+        startInterval()
+        return () => clearSlideInterval()
+    }, [])
+    
     return (
-        <div className="w-3/5 h-2/5 max-w-7xl mx-auto flex gap-6 flex-col">
+        <div className="h-2/5 max-w-7xl mx-auto flex gap-6 flex-col">
             {/* Carousel Wrapper */}
-            <div className="relative overflow-hidden">
+            <div 
+                className="relative overflow-hidden"
+                onMouseEnter={ clearSlideInterval }
+                onMouseLeave={ startInterval }
+            >
                 {/* Slides Container */}
                 <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${ currentIndex * 100 }%)`}}>
                     {featuredProjects.map((project, index) => (
@@ -39,13 +56,13 @@ const FeatureCarousel = () => {
                 </div>
                 <button 
                     onClick={ prevSlide }
-                    className='absolute top-1/2 left-0 p-4 text-white bg-black/10 hover:bg-black/30 h-full -translate-y-1/2 text-3xl font-bold'
+                    className='absolute top-1/2 left-0 p-2 md:p-4 text-white bg-black/10 hover:bg-black/30 h-full -translate-y-1/2 text-3xl font-bold'
                 >
                     <BiSolidChevronLeftSquare />
                 </button>
                 <button 
                     onClick={ nextSlide }
-                    className='absolute top-1/2 right-0 p-4 h-full bg-black/10 hover:bg-black/30 text-white hover:bg-opacity-50 -translate-y-1/2 text-3xl font-bold'
+                    className='absolute top-1/2 right-0 p-2 md:p-4 h-full bg-black/10 hover:bg-black/30 text-white hover:bg-opacity-50 -translate-y-1/2 text-3xl font-bold'
                 >
                     <BiSolidChevronRightSquare />
                 </button>
