@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { EventCard } from "./EventCard";
 import { Input } from "@/components/ui/input";
@@ -18,8 +18,14 @@ const EventsPage = () => {
   const [filterType, setFilterType] = useState("all");
 
   // Created an event type array to hold all event types for extendability
-  const eventType = ["All Types", "Workshop / Study Group", "Conference", "Info Session", "Outreach Program"];
-  
+  const eventType = [
+    "All Types",
+    "Workshop / Study Group",
+    "Conference",
+    "Info Session",
+    "Outreach Program",
+  ];
+
   const filteredEvents = pastEvents.filter((event) => {
     const matchesSearch = event.title
       .toLowerCase()
@@ -29,11 +35,13 @@ const EventsPage = () => {
   });
 
   return (
-    <div className="min-h-screen mb-42">
+    <div className="min-h-screen mb-42 bg-background">
       <main className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <header className="mt-32 mb-10 ">
+        <header className="mt-32 mb-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Events</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
+              Events
+            </h1>
             <h2 className="text-5xl md:text-6xl font-bold"></h2>
           </div>
         </header>
@@ -50,13 +58,19 @@ const EventsPage = () => {
               <SelectValue placeholder="Filter by type" />
             </SelectTrigger>
             <SelectContent>
-              {eventType.map(type => {
-                return <SelectItem key={type} value= {type === "All Types" ? "all" : type}>{type}</SelectItem>
+              {eventType.map((type) => {
+                return (
+                  <SelectItem
+                    key={type}
+                    value={type === "All Types" ? "all" : type}
+                  >
+                    {type}
+                  </SelectItem>
+                );
               })}
             </SelectContent>
           </Select>
         </div>
-
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           initial={{ opacity: 0 }}
@@ -67,10 +81,9 @@ const EventsPage = () => {
             <EventCard key={index} {...event} />
           ))}
         </motion.div>
-
         {filteredEvents.length === 0 && (
           <motion.p
-            className="text-center text-gray-500 mt-8"
+            className="text-center text-muted-foreground mt-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
