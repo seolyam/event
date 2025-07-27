@@ -1,4 +1,4 @@
-# Website Project
+# GDGOC USLS Events and Projects
 
 Google Developer Groups on Campus USLS Events and projects website built with Next.js, React, and Tailwind CSS.
 
