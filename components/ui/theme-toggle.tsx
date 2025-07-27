@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun, Monitor } from "lucide-react";
+import { Moon, Sun, Monitor, Check } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
 
   return (
     <DropdownMenu>
@@ -23,17 +23,35 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          <Sun className="mr-2 h-4 w-4" />
-          Light
+        <DropdownMenuItem
+          onClick={() => setTheme("light")}
+          className="flex items-center justify-between"
+        >
+          <div className="flex items-center">
+            <Sun className="mr-2 h-4 w-4" />
+            Light
+          </div>
+          {theme === "light" && <Check className="h-4 w-4 text-blue-600" />}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          <Moon className="mr-2 h-4 w-4" />
-          Dark
+        <DropdownMenuItem
+          onClick={() => setTheme("dark")}
+          className="flex items-center justify-between"
+        >
+          <div className="flex items-center">
+            <Moon className="mr-2 h-4 w-4" />
+            Dark
+          </div>
+          {theme === "dark" && <Check className="h-4 w-4 text-blue-600" />}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          <Monitor className="mr-2 h-4 w-4" />
-          System
+        <DropdownMenuItem
+          onClick={() => setTheme("system")}
+          className="flex items-center justify-between"
+        >
+          <div className="flex items-center">
+            <Monitor className="mr-2 h-4 w-4" />
+            System
+          </div>
+          {theme === "system" && <Check className="h-4 w-4 text-blue-600" />}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
