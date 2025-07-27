@@ -40,6 +40,15 @@ const Navbar = () => {
     setShowNavbar(true);
   }, []);
 
+  // Close mobile menu when pathname changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  const handleMobileNavClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div
       className={`fixed left-0 right-0 top-0 z-40 w-full transition-transform duration-300 py-4 ${
@@ -122,15 +131,19 @@ const Navbar = () => {
             >
               <Link
                 href="/events"
-                className="text-lg hover:text-blue-600 font-medium"
-                onClick={() => setIsMenuOpen(false)}
+                className={`text-lg font-medium transition-colors hover:text-blue-600 ${
+                  pathname === "/events" ? "text-blue-600" : "text-foreground"
+                }`}
+                onClick={handleMobileNavClick}
               >
                 Events
               </Link>
               <Link
                 href="/projects"
-                className="text-lg hover:text-blue-600 font-medium"
-                onClick={() => setIsMenuOpen(false)}
+                className={`text-lg font-medium transition-colors hover:text-blue-600 ${
+                  pathname === "/projects" ? "text-blue-600" : "text-foreground"
+                }`}
+                onClick={handleMobileNavClick}
               >
                 Projects
               </Link>
