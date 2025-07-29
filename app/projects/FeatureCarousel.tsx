@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { featuredProjects } from './projects'
 import Image from 'next/image'
 import { BiSolidChevronLeftSquare, BiSolidChevronRightSquare } from "react-icons/bi";
@@ -19,6 +19,10 @@ const FeatureCarousel = () => {
         }
         return colors[color]
     }
+
+    useEffect(() => {
+        setTimeout(() => nextSlide(), 3000)
+    }, [currentIndex])
 
     return (
         <div className="w-3/5 h-2/5 max-w-7xl mx-auto flex gap-6 flex-col">
