@@ -34,15 +34,15 @@ export const featuredProjects: FeaturedProject[] = [
         link: "https://www.facebook.com/media/set/?set=a.960729226270257&type=3",
         department: "Artificial Intelligence",
         color: "yellow-500",
-        description: 'This departmental project aims to educate people about various topics in Artificial Intelligence, from machine learning to ethical implications. It seeks to make AI more approachable and understandable for students and the general public through accessible materials and discussions.'
+        description: 'This departmental project seeks to provide an introductory understanding of various Artificial Intelligence topics—such as Generative AI, Prompt Engineering, AI Hallucinations, and the latest Google Gemini updates—through a series of informative Facebook postings. It aims to educate and engage the public by breaking down complex AI concepts into accessible, easy-to-digest content.'
     },
     {
         title: "GlitchGunner",
         image: "/images/gamedev.png",
-        link: "https://yuno517.itch.io/uhop-glitchgunner",
+        link: "https://yuno517.itch.io/glitchgunner",
         department: "Game Development",
         color: "blue-500",   
-        description: 'A 2D platformer-shooter educational game with a fully customizable quiz system designed to help people who struggle with focus while studying.'     
+        description: 'A 2D platformer-shooter educational game with a fully customizable quiz system designed to help people who struggle with focus while studying. Blitz through the cyberpunk streets and run away from the pursuing Hexcorp!'     
     },
 ];
 

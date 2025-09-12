@@ -1,7 +1,9 @@
+import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/navbar/page";
 import FooterPage from "./components/footer/page";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const description =
   "Google Developer Groups on Campus - Empowering developers through events and projects";
@@ -43,11 +45,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans min-h-screen bg-white text-gray-900">
-        <Navbar />
-        {children}
-        <FooterPage />
+    <html lang="en" suppressHydrationWarning>
+      <body className="font-sans min-h-screen bg-background text-foreground">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <FooterPage />
+        </ThemeProvider>
       </body>
     </html>
   );
