@@ -2,7 +2,7 @@ export const pastEvents = [
     {
       title:
         "AImagine: Build With AI",
-      date: "22 Mar, 29 Mar, and 5 Apr 2025",
+      date: "29 Apr 2025",
       type: "Workshop / Study Group",
       location: "CSL 1, University of St. La Salle",
       image: "/images/bwai.jpg",

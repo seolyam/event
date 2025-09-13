@@ -148,7 +148,7 @@ export default function ProjectPage() {
 
       {/*NEW: Featured Projects Section*/}
       <div className="flex flex-col gap-6 items-center">
-        <div className="flex flex-col text-center">
+        <div className="flex flex-col text-center mb-4">
           <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-4">Featured</h2>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">Departmental Projects</h1>
         </div>
