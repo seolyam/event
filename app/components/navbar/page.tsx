@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,16 +21,11 @@ const Navbar = () => {
       const isScrolled = currentScrollY > 10;
       setScrolled(isScrolled);
 
-      // Always show the navbar at the top
       if (currentScrollY <= 10) {
         setShowNavbar(true);
-      }
-      // Show navbar when scrolling up
-      else if (currentScrollY < lastScrollY) {
+      } else if (currentScrollY < lastScrollY) {
         setShowNavbar(true);
-      }
-      // Hide navbar when scrolling down
-      else {
+      } else {
         setShowNavbar(false);
       }
 
@@ -40,21 +36,29 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  // Ensure navbar is visible on initial load
   useEffect(() => {
     setShowNavbar(true);
   }, []);
+
+  // Close mobile menu when pathname changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  const handleMobileNavClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <div
       className={`fixed left-0 right-0 top-0 z-40 w-full transition-transform duration-300 py-4 ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
       } ${
-        scrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        scrolled
+          ? "bg-background/90 backdrop-blur-sm shadow-sm border-b"
+          : "bg-transparent"
       }`}
     >
-      
-      {/* Changed: md:px-16 to px-40, breakpoints for image height size */}
       <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between py-4 px-10 md:px-40">
         <Link href="/" className="flex items-center">
           <Image
@@ -70,14 +74,14 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Always show the navigation links */}
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-14 text-lg md:text-xl transition-opacity duration-300">
           <Link
             href="/events"
             className={`relative pb-2 transition-colors hover:text-blue-600 ${
               pathname === "/events"
                 ? "text-blue-600 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-blue-600"
-                : "text-gray-800"
+                : "text-foreground"
             }`}
           >
             Events
@@ -87,23 +91,23 @@ const Navbar = () => {
             className={`relative pb-2 transition-colors hover:text-blue-600 ${
               pathname === "/projects"
                 ? "text-blue-600 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-blue-600"
-                : "text-gray-800"
+                : "text-foreground"
             }`}
           >
             Projects
           </Link>
+          <ThemeToggle />
         </div>
 
-        {/* Mobile Menu (Optional – you may remove it if not needed) 
-            Changed: block md:hidden
-        */}
+        {/* Mobile Menu */}
         <div className="block md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
-                // Changed: checked if the menu is open instead of if the screen is scrolled
-                className={`p-2 ${!isMenuOpen ? "text-gray-800" : "text-white"}`}
+                className={`p-2 ${
+                  !isMenuOpen ? "text-foreground" : "text-white"
+                }`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,23 +125,31 @@ const Navbar = () => {
                 </svg>
               </Button>
             </SheetTrigger>
-
             <SheetContent
               side="right"
               className="flex flex-col items-start space-y-4 p-4"
             >
               <Link
                 href="/events"
-                className="text-lg hover:text-blue-600 font-medium"
+                className={`text-lg font-medium transition-colors hover:text-blue-600 ${
+                  pathname === "/events" ? "text-blue-600" : "text-foreground"
+                }`}
+                onClick={handleMobileNavClick}
               >
                 Events
               </Link>
               <Link
                 href="/projects"
-                className="text-lg hover:text-blue-600 font-medium"
+                className={`text-lg font-medium transition-colors hover:text-blue-600 ${
+                  pathname === "/projects" ? "text-blue-600" : "text-foreground"
+                }`}
+                onClick={handleMobileNavClick}
               >
                 Projects
               </Link>
+              <div className="pt-4 border-t w-full">
+                <ThemeToggle />
+              </div>
             </SheetContent>
           </Sheet>
         </div>

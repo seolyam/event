@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import type React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -30,29 +32,29 @@ export const EventCard: React.FC<EventCardProps> = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Card className="overflow-hidden h-full flex flex-col">
+      <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow">
         <div className="relative h-48">
           <Image
-            src={image}
+            src={image || "/placeholder.svg"}
             alt={title}
             fill
             style={{ objectFit: "contain", objectPosition: "center" }}
-            className="bg-gray-100 transition-transform duration-300 hover:scale-105"
+            className="bg-muted transition-transform duration-300 hover:scale-105"
           />
         </div>
         <CardContent className="flex-grow p-4">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+          <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-2">
             {title}
           </h3>
-          <div className="flex items-center text-sm text-gray-500 mb-1">
+          <div className="flex items-center text-sm text-muted-foreground mb-1">
             <Calendar className="w-4 h-4 mr-2" />
             {date}
           </div>
-          <div className="flex items-center text-sm text-gray-500 mb-1">
+          <div className="flex items-center text-sm text-muted-foreground mb-1">
             <Tag className="w-4 h-4 mr-2" />
             {type}
           </div>
-          <div className="flex items-center text-sm text-gray-500 mb-3">
+          <div className="flex items-center text-sm text-muted-foreground mb-3">
             <MapPin className="w-4 h-4 mr-2" />
             {location}
           </div>

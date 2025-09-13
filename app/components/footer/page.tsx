@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { siFacebook, siGithub, siInstagram } from "simple-icons/icons";
@@ -50,7 +48,7 @@ const Icon = ({ icon, label }: { icon: string; label: string }) => (
 
 const FooterPage = () => {
   return (
-    <footer className="border-t border-gray-200 bg-white">
+    <footer className="border-t bg-background">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
@@ -61,7 +59,7 @@ const FooterPage = () => {
               <span className="text-blue-600">OC</span>{" "}
               <span className="text-green-500">USLS</span>
             </h2>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               Powered by Intellect, Driven by Values
             </p>
             <div className="flex space-x-4">
@@ -90,7 +88,7 @@ const FooterPage = () => {
           </div>
           {footerData.map((section) => (
             <div key={section.title} className="space-y-4">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
                 {section.title}
               </h3>
               <ul className="space-y-2">
@@ -98,7 +96,7 @@ const FooterPage = () => {
                   <li key={item.title}>
                     <Link
                       href={item.link}
-                      className="text-sm text-gray-600 hover:text-gray-900 hover:underline"
+                      className="text-sm text-muted-foreground hover:text-foreground hover:underline transition-colors"
                     >
                       {item.title}
                     </Link>
@@ -108,8 +106,8 @@ const FooterPage = () => {
             </div>
           ))}
         </div>
-        <div className="mt-12 border-t border-gray-200 pt-8 text-center">
-          <p className="text-sm text-gray-500">
+        <div className="mt-12 border-t pt-8 text-center">
+          <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Google Developer Groups on Campus
             — USLS. All Rights Reserved.
           </p>
